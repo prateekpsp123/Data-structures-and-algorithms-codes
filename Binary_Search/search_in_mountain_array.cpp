@@ -10,8 +10,11 @@ int searchInMountainArray(vector<int>arr){
   while(start < end){
     int mid = start + (end-start)/2;
     if(arr[mid] > arr[mid + 1])
+      //You are at the decreasing part of the array and mid can be the possible answer that's why end = mid not mid -1
       end = mid;
     else
+      // you are at the increasing part of the array, and we know already mid + 1 is greater and mid cannot be the
+      // answer so we will do start = mid + 1 and not mid
       start = mid + 1;
   }
   return arr[start];
